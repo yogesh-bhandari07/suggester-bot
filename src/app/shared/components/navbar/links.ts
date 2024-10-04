@@ -11,6 +11,7 @@ export interface ButtonLink {
   hoverBgColor: string;
   textColor: string;
   hoverTextColor: string;
+  isAuthRequired:boolean;
 }
 export const NAVBAR_LINKS: Link[] = [
   { url: "/", text: "Home", icon: "home", is_disabled: false },
@@ -23,6 +24,7 @@ export const NAVBAR_BUTTONS: ButtonLink[] = [
     hoverBgColor: "hover:bg-yellow-300",
     textColor: "text-yellow-900",
     hoverTextColor: "hover:text-yellow-800",
+    isAuthRequired:false
   },
   {
     url: "/auth/login",
@@ -31,5 +33,6 @@ export const NAVBAR_BUTTONS: ButtonLink[] = [
     hoverBgColor: "hover:bg-green-300",
     textColor: "text-green-900",
     hoverTextColor: "hover:text-green-800",
+    isAuthRequired:false
   },
 ];

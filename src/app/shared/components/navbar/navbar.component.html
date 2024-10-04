@@ -1,11 +1,9 @@
-<nav class="bg-gray-100">
+<nav class="bg-transparent">
     <div class="max-w-6xl mx-auto px-4">
         <div class="flex justify-between">
-
             <div class="flex space-x-4">
                 <div>
                     <a href="#" class="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900">
-
                         <span class="font-bold">Learn Dev</span>
                     </a>
                 </div>
@@ -14,22 +12,19 @@
                     <a [routerLink]="link.url" routerLinkActive="router-link-active"
                         class="py-5 px-3 text-gray-700 hover:text-gray-900" [attr.aread.disabled]="link.is_disabled"
                         class="py-5 px-3">
-
                         {{ link.text }}
                     </a>
                 </div>
             </div>
             <div class="hidden md:flex items-center justify-start space-x-1">
                 <ng-container *ngFor="let button of buttons">
-                    <a [routerLink]="button.url" routerLinkActive="router-link-active"
+                    <a *ngIf="checkAuth(button.isAuthRequired)" [routerLink]="button.url" routerLinkActive="router-link-active"
                         [ngClass]="[button.bgColor, button.hoverBgColor, button.textColor, button.hoverTextColor]"
                         class="py-2 px-3 rounded transition duration-300">
                         {{ button.text }}
                     </a>
                 </ng-container>
             </div>
-
-
 
             <div class="md:hidden flex items-center">
                 <button class="mobile-menu-button">
@@ -40,12 +35,11 @@
                     </svg>
                 </button>
             </div>
-
         </div>
     </div>
-
+<!-- 
     <div class="mobile-menu hidden md:hidden">
         <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">Features</a>
         <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">Pricing</a>
-    </div>
+    </div> -->
 </nav>
