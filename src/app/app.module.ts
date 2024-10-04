@@ -12,6 +12,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ToastrModule } from "ngx-toastr";
+import { FormComponent } from './shared/components/form/form.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ToastrModule } from "ngx-toastr";
     HomeComponent,
     LoginComponent,
     NavbarComponent,
+    FormComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,11 +29,10 @@ import { ToastrModule } from "ngx-toastr";
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule, // Required for toastr animations
+    BrowserAnimationsModule,
     ToastrModule.forRoot({
-      // Toastr configuration
-      positionClass: "toast-top-right", // Toast position
-      preventDuplicates: true, // Prevent duplicate toasts
+      positionClass: "toast-top-right", 
+      preventDuplicates: true,
     }),
   ],
   providers: [],

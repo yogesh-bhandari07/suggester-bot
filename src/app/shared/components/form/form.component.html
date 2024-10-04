@@ -1,0 +1,43 @@
+<form [formGroup]="formGroup" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div *ngFor="let field of fields" class="mb-4">
+        <!-- Label -->
+        <label [for]="field.name" class="block text-gray-700 text-sm font-bold mb-2">{{ field.label }}:</label>
+
+
+        <ng-container [ngSwitch]="field.type">
+            <input *ngSwitchCase="'text'" [id]="field.name" [type]="field.type" [formControlName]="field.name"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+
+            <!-- Email Input -->
+            <input *ngSwitchCase="'email'" [id]="field.name" [type]="field.type" [formControlName]="field.name"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+
+            <!-- Password Input -->
+            <input *ngSwitchCase="'password'" [id]="field.name" [type]="field.type" [formControlName]="field.name"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+
+            <!-- Textarea -->
+            <textarea *ngSwitchCase="'textarea'" [id]="field.name" [formControlName]="field.name"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                rows="5"></textarea>
+
+            <!-- File Input -->
+            <input *ngSwitchCase="'file'" [id]="field.name" [type]="field.type"
+                (change)="onFileChange($event, field.name)"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+
+            <!-- Default Case (Fallback for future use) -->
+            <input *ngSwitchDefault [id]="field.name" [type]="field.type" [formControlName]="field.name"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+        </ng-container>
+
+        <!-- Validation Messages -->
+        <div *ngIf="formGroup.get(field.name)?.invalid && (formGroup.get(field.name)?.touched || formGroup.get(field.name)?.dirty)"
+            class="text-red-500 text-xs mt-1">
+            <div *ngIf="formGroup.get(field.name)?.errors?.['required']">{{ field.label }} is required.</div>
+            <div *ngIf="formGroup.get(field.name)?.errors?.['pattern']">{{ field.label }} must be a valid format.</div>
+            <div *ngIf="formGroup.get(field.name)?.errors?.['minlength']">{{ field.label }} must be at least
+                {{ field.minLength }} characters long.</div>
+        </div>
+    </div>
+</form>
