@@ -1,0 +1,77 @@
+.banner {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 70vh;
+    overflow: hidden; /* Prevent image overflow */
+}
+
+.infoArea {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    gap: 4px;
+    background: var(--background);
+    padding: 20px; /* Add some padding for better spacing */
+}
+
+.infoArea h1 {
+    font-size: 50px;
+}
+
+.imageArea {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.imageArea img {
+    width: 100%;
+    height: 100%; /* Maintain aspect ratio */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .banner {
+        flex-direction: column; /* Stack elements on smaller screens */
+        height: auto; /* Allow height to be determined by content */
+    }
+
+    .infoArea {
+        align-items: center; /* Center align text */
+        padding: 10px; /* Reduce padding on mobile */
+    }
+
+    .infoArea h1 {
+        font-size: 30px; /* Smaller heading on mobile */
+        text-align: center; /* Center align text */
+    }
+
+    .infoArea p {
+        font-size: 16px; /* Adjust paragraph font size */
+        text-align: center; /* Center align paragraph */
+    }
+
+    .imageArea img {
+        max-width: 90%; /* Limit image width on mobile */
+    }
+}
+
+@media (min-width: 769px) {
+    .infoArea {
+        padding: 40px; /* More padding on larger screens */
+    }
+
+    .infoArea h1 {
+        font-size: 50px; /* Original heading size */
+    }
+
+    .infoArea p {
+        font-size: 18px; /* Original paragraph size */
+    }
+}

@@ -20,19 +20,19 @@ export const NAVBAR_BUTTONS: ButtonLink[] = [
   {
     url: "/auth/register",
     text: "Register",
-    bgColor: "bg-yellow-400",
-    hoverBgColor: "hover:bg-yellow-300",
-    textColor: "text-yellow-900",
-    hoverTextColor: "hover:text-yellow-800",
+    bgColor: "bg-[#67869f]",
+    hoverBgColor: "hover:bg-[#67869f]",
+    textColor: "text-white",
+    hoverTextColor: "hover:text-gray-400",
     isAuthRequired:false
   },
   {
     url: "/auth/login",
     text: "Login",
-    bgColor: "bg-green-400",
-    hoverBgColor: "hover:bg-green-300",
-    textColor: "text-green-900",
-    hoverTextColor: "hover:text-green-800",
+    bgColor: "bg-[#334153]",
+    hoverBgColor: "hover:bg-[#334153]",
+    textColor: "text-white",
+    hoverTextColor: "hover:text-gray-400",
     isAuthRequired:false
   },
 ];
