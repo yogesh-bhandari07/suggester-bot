@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ToastrModule } from "ngx-toastr";
 import { FormComponent } from './shared/components/form/form.component';
 import { BlogPostComponent } from './shared/components/blog-post/blog-post.component';
+import { PostDetailsComponent } from './views/post-details/post-details.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { BlogPostComponent } from './shared/components/blog-post/blog-post.compo
     NavbarComponent,
     FormComponent,
     BlogPostComponent,
+    PostDetailsComponent,
   ],
   imports: [
     BrowserModule,
