@@ -1,0 +1,20 @@
+<div class="flex bg-white rounded-lg shadow-md p-6 max-w-xl mx-auto">
+    <div class="flex justify-center items-center mr-4">
+        <img src="{{ imageUrl }}" alt="{{ title }}" class="w-32 h-32 object-cover rounded-md" />
+    </div>
+    <div class="flex-1">
+        <h2 class="text-2xl font-bold text-[var(--heading)] mb-4">{{ title }}</h2>
+        <p class="text-[var(--text)] mb-6">{{ getTruncatedContent() }}</p> <!-- Use the truncation method -->
+        <div class="flex justify-between items-center mb-4">
+            <span class="text-[var(--mongoose)]">{{ author }}</span>
+            <span class="text-[var(--hoki)]">{{ date | date: 'mediumDate' }}</span>
+        </div>
+        <div class="flex justify-end items-end">
+            <button
+                class="bg-[var(--fountain-blue)] text-white font-semibold py-2 px-4 rounded hover:bg-[var(--hoki)] transition"
+                (click)="viewFullPost()">
+                View Full Post
+            </button>
+        </div>
+    </div>
+</div>

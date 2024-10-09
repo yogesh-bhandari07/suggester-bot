@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ToastrModule } from "ngx-toastr";
 import { FormComponent } from './shared/components/form/form.component';
+import { BlogPostComponent } from './shared/components/blog-post/blog-post.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { FormComponent } from './shared/components/form/form.component';
     LoginComponent,
     NavbarComponent,
     FormComponent,
+    BlogPostComponent,
   ],
   imports: [
     BrowserModule,
