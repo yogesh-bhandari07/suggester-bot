@@ -1,0 +1,38 @@
+<div class="chat-container ">
+  <div class="chat-icon" *ngIf="!chatOpen" (click)="toggleChat()">
+    <div class="icon">💬</div>
+  </div>
+
+  <div *ngIf="chatOpen" class="chat-window min-h-[500px]">
+    <div class="chat-header bg-gray-800 text-white p-3 flex justify-between">
+      <span class="text-bold">Agent I</span>
+      <button (click)="toggleChat()" class="text-white">✖</button>
+    </div>
+
+    <div class="chat-body flex-1 p-4 overflow-y-auto">
+      <div class="flex flex-col">
+        <div *ngFor="let message of messages" class="message rounded-lg py-2 px-4 mb-3"
+             [ngClass]="{'assistant bg-blue-100 border-blue-100 self-start': message.role === 'assistant', 
+                         'user bg-green-200 border-green-200 self-end': message.role === 'user'}">
+          <span>{{ message.body }}</span>
+          <span *ngIf="message.beingTyped" class="w-2.5 bg-gray-600 h-4 inline-block -mb-0.5 align-baseline blink"></span>
+        </div>
+
+        <div *ngIf="showTyping" class="message assistant rounded-lg py-2.5 px-4 mb-3 bg-blue-100 border-blue-100 self-start">
+          <div class="type-indicator">
+            <span>.</span><span>.</span><span>.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-footer bg-gray-200 p-3">
+      <form [formGroup]="chatForm" class="w-full flex space-x-2" (ngSubmit)="sendMessage()">
+        <input id="message" type="text" autocomplete="off" class="chat-input" formControlName="newMessage" placeholder="Your message..." />
+        <button class="send-btn px-3 py-2 rounded-md" [class.opacity-50]="waitingOnResponse" [disabled]="waitingOnResponse">
+          Send
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

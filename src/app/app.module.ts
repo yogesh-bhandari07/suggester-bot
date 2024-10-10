@@ -9,12 +9,13 @@ import { LoginComponent } from "./views/login/login.component";
 import { NavbarComponent } from "./shared/components/navbar/navbar.component";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { HttpClientModule } from "@angular/common/http";
-import { ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms"; // Combined imports
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ToastrModule } from "ngx-toastr";
 import { FormComponent } from './shared/components/form/form.component';
 import { BlogPostComponent } from './shared/components/blog-post/blog-post.component';
 import { PostDetailsComponent } from './views/post-details/post-details.component';
+import { ChatBotComponent } from './shared/components/chat-bot/chat-bot.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { PostDetailsComponent } from './views/post-details/post-details.componen
     FormComponent,
     BlogPostComponent,
     PostDetailsComponent,
+    ChatBotComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,13 +35,14 @@ import { PostDetailsComponent } from './views/post-details/post-details.componen
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,  // Keep FormsModule here for template-driven forms
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       positionClass: "toast-top-right", 
       preventDuplicates: true,
     }),
   ],
-  providers: [],
-  bootstrap: [AppComponent, RegisterComponent],
+  providers: [],  // You can add services here if needed
+  bootstrap: [AppComponent],  // Bootstrap should generally only include the root component
 })
 export class AppModule {}
